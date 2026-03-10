@@ -1,0 +1,47 @@
+{
+  "project": {
+    "name": "familymart-foodlight",
+    "project_code": "202106302"
+  },
+  "search_radius_m": 500,
+  "areas": {
+    "home": {
+      "name": "🏠 家裡",
+      "emoji": "🏠",
+      "points": [
+        {"lat": 25.0478, "lon": 121.5170, "note": "從 Google Maps 複製座標"}
+      ],
+      "store_watchlist": []
+    },
+    "work": {
+      "name": "🏢 公司",
+      "emoji": "🏢", 
+      "points": [
+        {"lat": 25.0330, "lon": 121.5654}
+      ],
+      "store_watchlist": []
+    }
+  },
+  "schedule": {
+    "weekday": {
+      "time": "18:00",
+      "areas": ["work", "home"]
+    },
+    "weekend": {
+      "time": "17:00",
+      "areas": ["home"]
+    }
+  },
+  "watchlist": [
+    "可頌",
+    "咖哩",
+    "親子丼",
+    "漢堡排",
+    "義大利麵"
+  ],
+  "blacklist": [
+    "飯糰",
+    "手卷",
+    "炸雞"
+  ]
+}
