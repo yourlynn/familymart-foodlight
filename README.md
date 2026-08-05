@@ -47,7 +47,7 @@ python3 scripts/scanner.py --config config.json
     "home": {
       "name": "🏠 家裡",
       "points": [{"lat": 25.0478, "lon": 121.5170}],
-      "store_watchlist": ["芝玉店", "新芝蘭店"]
+      "store_watchlist": ["館前店", "南陽店"]
     }
   },
   "watchlist": ["可頌", "咖哩"],
@@ -94,9 +94,9 @@ python3 scripts/scanner.py --config config.json [OPTIONS]
 
 📍 🏠 家裡
 
-🏪 全家芝玉店
-⭐ 白名單商品：黃金奶油鹽可頌、沙茶豬肉炒麵
-📦 其他商品：和風咖哩豬肉麵包...等 43 項
+🏪 全家館前店（120m）
+⭐ 白名單商品：黃金奶油鹽可頌 x2、沙茶豬肉炒麵
+📦 其他商品：和風咖哩豬肉麵包 x3...等 43 項
 ```
 
 ## 🤖 作為 AI Agent Skill 使用

@@ -285,21 +285,26 @@ def render_markdown_report(
         for st in watchlist_stores:
             wlps, others = split_products_by_watchlist(st.products, watchlist, blacklist)
             
-            out.append(f"🏪 {st.name}")
-            
+            out.append(f"🏪 {st.name}（{round(st.distance_m)}m）")
+
+            # 2026-08-05：qty 本來就抓得到卻沒印出來，導致每次跑完都要另外再抽一次
+            # 原始資料才湊得出 skill 要求的「品項 x數量」格式。這裡直接帶上數量（1 個不標）。
+            def _with_qty(p) -> str:
+                return p.name if p.qty <= 1 else f"{p.name} x{p.qty}"
+
             # 白名單商品：列出名稱，用頓號分隔
             if wlps:
-                wl_names = "、".join(p.name for p in wlps)
+                wl_names = "、".join(_with_qty(p) for p in wlps)
                 out.append(f"⭐ 白名單商品：{wl_names}")
             else:
                 out.append("⭐ 白名單商品：（無）")
-            
+
             # 其他商品：最多顯示 3 個，其餘用「...等 N 項」
             if others:
                 if len(others) <= 3:
-                    other_names = "、".join(p.name for p in others)
+                    other_names = "、".join(_with_qty(p) for p in others)
                 else:
-                    other_names = "、".join(p.name for p in others[:3]) + f"...等 {len(others)} 項"
+                    other_names = "、".join(_with_qty(p) for p in others[:3]) + f"...等 {len(others)} 項"
                 out.append(f"📦 其他商品：{other_names}")
             else:
                 out.append("📦 其他商品：（無）")
@@ -354,7 +359,7 @@ def render_discover_report(
 
     out.append("💡 使用方式：")
     out.append('```json')
-    out.append('"store_watchlist": ["芝玉店", "新芝蘭店"]')
+    out.append('"store_watchlist": ["館前店", "南陽店"]')
     out.append('```')
     
     return "\n".join(out).rstrip() + "\n"
